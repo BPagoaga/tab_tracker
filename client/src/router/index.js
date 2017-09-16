@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
+import Songs from '@/components/Songs'
 
 Vue.use(Router)
 
@@ -24,9 +25,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/logout',
-      name: 'Logout',
-      component: Login
+      path: '/songs',
+      name: 'Songs',
+      component: Songs
     }
   ]
 })
