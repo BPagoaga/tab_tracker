@@ -8,7 +8,7 @@
 
         <div class="pl-4 pr-4 pb-2 pl-2">
           <v-text-field label="Email" v-model="email"></v-text-field>
-          <v-text-field label="Password" v-model="password"></v-text-field>
+          <v-text-field label="Password" type="password" v-model="password"></v-text-field>
           <div v-html="error" class="error"></div>
 
           <v-btn class="cyan" @click="login" dark>Login</v-btn>
@@ -37,7 +37,8 @@ export default {
           password: this.password
         })
 
-        console.log(response.data)
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (err) {
         this.error = err.response.data.error
       }

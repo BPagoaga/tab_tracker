@@ -12,11 +12,16 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-      <v-btn flat dark to="/login" router>
+      <v-btn flat dark to="/login" router v-if="!$store.state.isUserLoggedIn">
         Login
       </v-btn>
-      <v-btn flat dark to="/register" router>
+      <v-btn flat dark to="/register" router v-if="!$store.state.isUserLoggedIn">
         Sign Up
+      </v-btn>
+    </v-toolbar-items>
+    <v-toolbar-items>
+      <v-btn flat dark to="/logout" router v-if="$store.state.isUserLoggedIn">
+        Logout
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>
