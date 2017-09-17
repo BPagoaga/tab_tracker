@@ -6,15 +6,15 @@
       <template v-for="song in songs">
         <v-subheader :key="song.title" v-if="song.title" v-text="song.title"></v-subheader>
         <!-- <v-divider v-else-if="song.divider" v-bind:inset="song.inset"></v-divider>
-                      <v-list-tile avatar v-else v-bind:key="song.title" @click="" download>
-                        <v-list-tile-avatar>
-                          <img v-bind:src="song.avatar">
-                        </v-list-tile-avatar>
-                        <v-list-tile-content>
-                          <v-list-tile-title v-html="song.title"></v-list-tile-title>
-                          <v-list-tile-sub-title v-html="song.subtitle"></v-list-tile-sub-title>
-                        </v-list-tile-content>
-                      </v-list-tile> -->
+                              <v-list-tile avatar v-else v-bind:key="song.title" @click="" download>
+                                <v-list-tile-avatar>
+                                  <img v-bind:src="song.avatar">
+                                </v-list-tile-avatar>
+                                <v-list-tile-content>
+                                  <v-list-tile-title v-html="song.title"></v-list-tile-title>
+                                  <v-list-tile-sub-title v-html="song.subtitle"></v-list-tile-sub-title>
+                                </v-list-tile-content>
+                              </v-list-tile> -->
       </template>
     </v-list>
   </panel>
@@ -22,6 +22,8 @@
 
 <script>
 import Panel from '@/components/Panel'
+import SongsService from '@/services/SongsService'
+
 export default {
   components: {
     Panel
@@ -29,11 +31,12 @@ export default {
   data() {
     return {
       title: 'Songs',
-      songs: [
-        { title: 'song1' },
-        { title: 'song2' }
-      ]
+      songs: null
     }
+  },
+  async mounted() {
+    // request to the backend to get all songs
+    this.songs = await SongsService.index()
   }
 }
 </script>
