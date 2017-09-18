@@ -32,7 +32,7 @@ export default {
 }
 
 .toolbar__title,
-.btn__content {
+.toolbar__title .btn__content {
   color: white
 }
 </style>

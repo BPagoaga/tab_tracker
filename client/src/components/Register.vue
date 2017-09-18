@@ -1,16 +1,20 @@
 <template>
-  <panel :title="title">
-    <div class="pl-4 pr-4 pb-2 pl-2">
-      <form action="" name="tab-tracker-form" autocomplete="off">
-        <v-text-field label="Email" v-model="email">
-        </v-text-field>
-        <v-text-field label="Password" type="password" autocomplete="new-password" v-model="password"></v-text-field>
-        <div v-html="error" class="error"></div>
-      </form>
+  <v-layout column>
+    <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
+      <panel :title="title">
+        <div class="pl-4 pr-4 pb-2 pl-2">
+          <form action="" name="tab-tracker-form" autocomplete="off">
+            <v-text-field label="Email" v-model="email">
+            </v-text-field>
+            <v-text-field label="Password" type="password" autocomplete="new-password" v-model="password"></v-text-field>
+            <div v-html="error" class="error"></div>
+          </form>
 
-      <v-btn class="cyan" @click="register" dark>Register</v-btn>
-    </div>
-  </panel>
+          <v-btn class="cyan" @click="register" dark>Register</v-btn>
+        </div>
+      </panel>
+    </v-flex>
+  </v-layout>
 </template>
         
 <script>
