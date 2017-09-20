@@ -15,14 +15,12 @@
                 <img :src="song.albumImage">
               </v-list-tile-avatar>
               <v-list-tile-content>
-
                 <v-list-tile-title v-html="song.artist"></v-list-tile-title>
                 <v-list-tile-sub-title v-html="song.artist"></v-list-tile-sub-title>
               </v-list-tile-content>
-              <v-list-tile-content>
-                <v-list-tile-title v-html="song.lyrics"></v-list-tile-title>
-                <v-list-tile-sub-title v-html="song.lyrics"></v-list-tile-sub-title>
-              </v-list-tile-content>
+              <v-btn class="cyan accent-2" light small right fab :to="{ name: 'Edit Song', params: { songId: song.id }}" router>
+                <v-icon>edit</v-icon>
+              </v-btn>
               <v-btn class="cyan accent-2" light medium right :to="{ name: 'View Song', params: { songId: song.id }}" router>View</v-btn>
             </v-list-tile>
           </template>

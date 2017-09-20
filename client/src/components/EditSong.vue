@@ -20,7 +20,7 @@
       <v-alert class="ml-4" :value="error" transition="scale-transition" error>
         {{error}}
       </v-alert>
-      <v-btn class="cyan" @click="create" dark>Create Song</v-btn>
+      <v-btn class="cyan" @click="save" dark><v-icon>save</v-icon></v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -38,6 +38,7 @@ export default {
       titleLeft: 'Song metadata',
       titleRight: 'Song structure',
       song: {
+        id: null,
         title: null,
         artist: null,
         genre: null,
@@ -51,23 +52,28 @@ export default {
       required: (value) => !!value || 'Required'
     }
   },
+  async mounted() {
+    const songId = this.$store.state.route.params.songId
+    this.song = (await SongsService.show(songId)).data
+  },
   methods: {
-    async create() {
+    async save() {
       this.error = null
       const allFieldsFilled = Object.keys(this.song)
-        .every(key => {
-          !!this.song[key]
-        })
+        .every(key => !!this.song[key])
       console.log('hi', allFieldsFilled)
       if (!allFieldsFilled) {
         this.error = 'Please fill all the fields'
-        // return
+        return
       }
 
       try {
-        await SongsService.post(this.song)
+        await SongsService.put(this.song)
         this.$router.push({
-          name: 'Songs'
+          name: 'View Song',
+          params: {
+            songId: this.song.id
+          }
         })
       } catch (err) {
         console.error(err)
