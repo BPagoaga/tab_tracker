@@ -35,4 +35,8 @@ export default {
 .toolbar__title .btn__content {
   color: white
 }
+
+.layout {
+  flex-wrap: wrap;
+}
 </style>
