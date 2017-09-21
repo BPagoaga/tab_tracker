@@ -1,6 +1,6 @@
 <template>
   <panel title="Youtube Video">
-    <youtube :video-id="youtubeId" :player-width="500" :player-height="200"></youtube>
+    <youtube class="youtube-wrapper" :video-id="youtubeId" :player-width="500" :player-height="200"></youtube>
   </panel>
 </template>
 
@@ -18,5 +18,7 @@ export default {
 </script>
 
 <style>
-
+.youtube-wrapper > iframe {
+  max-width: 100%;
+}
 </style>
