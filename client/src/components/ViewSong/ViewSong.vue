@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-import SongsService from '@/services/SongsService'
-import SongMetadata from '@/components/ViewSong/SongMetadata'
-import SongStructure from '@/components/ViewSong/SongStructure'
-import YouTube from '@/components/ViewSong/YouTube'
-import Lyrics from '@/components/ViewSong/Lyrics'
+import Panel from "@/components/Panel";
+import SongsService from "@/services/SongsService";
+import SongMetadata from "@/components/ViewSong/SongMetadata";
+import SongStructure from "@/components/ViewSong/SongStructure";
+import YouTube from "@/components/ViewSong/YouTube";
+import Lyrics from "@/components/ViewSong/Lyrics";
 
 export default {
   components: {
@@ -38,13 +38,13 @@ export default {
   data() {
     return {
       song: null
-    }
+    };
   },
   async mounted() {
-    const songId = this.$store.state.route.params.songId
-    this.song = (await SongsService.show(songId)).data
+    const songId = this.$store.state.route.params.songId;
+    this.song = (await SongsService.show(songId)).data;
   }
-}
+};
 </script>
 
 <style>

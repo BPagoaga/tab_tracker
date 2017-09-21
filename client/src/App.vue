@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import PageHeader from '@/components/Header'
+import PageHeader from "@/components/Header";
 export default {
-  name: 'app',
+  name: "app",
   components: {
     PageHeader
   }
-}
+};
 </script>
 
 <style>

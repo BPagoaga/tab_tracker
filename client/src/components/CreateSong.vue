@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-import SongsService from '@/services/SongsService'
+import Panel from "@/components/Panel";
+import SongsService from "@/services/SongsService";
 
 export default {
   components: {
@@ -35,8 +35,8 @@ export default {
   },
   data() {
     return {
-      titleLeft: 'Song metadata',
-      titleRight: 'Song structure',
+      titleLeft: "Song metadata",
+      titleRight: "Song structure",
       song: {
         title: null,
         artist: null,
@@ -48,33 +48,32 @@ export default {
         tab: null
       },
       error: null,
-      required: (value) => !!value || 'Required'
-    }
+      required: value => !!value || "Required"
+    };
   },
   methods: {
     async create() {
-      this.error = null
-      const allFieldsFilled = Object.keys(this.song)
-        .every(key => {
-          !!this.song[key]
-        })
-      console.log('hi', allFieldsFilled)
+      this.error = null;
+      const allFieldsFilled = Object.keys(this.song).every(key => {
+        !!this.song[key];
+      });
+      console.log("hi", allFieldsFilled);
       if (!allFieldsFilled) {
-        this.error = 'Please fill all the fields'
+        this.error = "Please fill all the fields";
         // return
       }
 
       try {
-        await SongsService.post(this.song)
+        await SongsService.post(this.song);
         this.$router.push({
-          name: 'Songs'
-        })
+          name: "Songs"
+        });
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
     }
   }
-}
+};
 </script>
 
 <style>

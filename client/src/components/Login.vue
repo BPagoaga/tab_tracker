@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
+import AuthenticationService from "@/services/AuthenticationService";
+import Panel from "@/components/Panel";
 
 export default {
   components: {
@@ -24,11 +24,11 @@ export default {
   },
   data() {
     return {
-      title: 'Login',
-      email: '',
-      password: '',
+      title: "Login",
+      email: "",
+      password: "",
       error: null
-    }
+    };
   },
   methods: {
     async login() {
@@ -36,16 +36,16 @@ export default {
         const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
-        })
+        });
 
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
       } catch (err) {
-        this.error = err.response.data.error
+        this.error = err.response.data.error;
       }
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

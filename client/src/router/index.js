@@ -1,51 +1,51 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Register from '@/components/Register'
-import Login from '@/components/Login'
-import Songs from '@/components/Songs'
-import CreateSong from '@/components/CreateSong'
-import ViewSong from '@/components/ViewSong/ViewSong'
-import EditSong from '@/components/EditSong'
+import Vue from "vue";
+import Router from "vue-router";
+import Hello from "@/components/Hello";
+import Register from "@/components/Register";
+import Login from "@/components/Login";
+import Songs from "@/components/Songs";
+import CreateSong from "@/components/CreateSong";
+import ViewSong from "@/components/ViewSong/ViewSong";
+import EditSong from "@/components/EditSong";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Hello',
+      path: "/",
+      name: "Hello",
       component: Hello
     },
     {
-      path: '/register',
-      name: 'Register',
+      path: "/register",
+      name: "Register",
       component: Register
     },
     {
-      path: '/login',
-      name: 'Login',
+      path: "/login",
+      name: "Login",
       component: Login
     },
     {
-      path: '/songs',
-      name: 'Songs',
+      path: "/songs",
+      name: "Songs",
       component: Songs
     },
     {
-      path: '/songs/create',
-      name: 'Create Song',
+      path: "/songs/create",
+      name: "Create Song",
       component: CreateSong
     },
     {
-      path: '/songs/:songId/edit',
-      name: 'Edit Song',
+      path: "/songs/:songId/edit",
+      name: "Edit Song",
       component: EditSong
     },
     {
-      path: '/songs/:songId',
-      name: 'View Song',
+      path: "/songs/:songId",
+      name: "View Song",
       component: ViewSong
     }
   ]
-})
+});

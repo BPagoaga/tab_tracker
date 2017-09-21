@@ -18,8 +18,8 @@
 </template>
         
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
+import AuthenticationService from "@/services/AuthenticationService";
+import Panel from "@/components/Panel";
 
 export default {
   components: {
@@ -27,11 +27,11 @@ export default {
   },
   data() {
     return {
-      title: 'Register',
-      email: '',
-      password: '',
+      title: "Register",
+      email: "",
+      password: "",
       error: null
-    }
+    };
   },
   methods: {
     async register() {
@@ -39,16 +39,16 @@ export default {
         const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
-        })
+        });
 
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
       } catch (err) {
-        this.error = err.response.data.error
+        this.error = err.response.data.error;
       }
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

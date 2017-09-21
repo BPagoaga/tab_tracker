@@ -1,17 +1,16 @@
-import Api from '@/services/Api'
+import Api from "@/services/Api";
 
 export default {
   index() {
-    return Api().get('songs')
+    return Api().get("songs");
   },
   post(song) {
-    return Api().post('songs', song)
+    return Api().post("songs", song);
   },
   show(songId) {
-    return Api().get(`songs/${songId}`)
+    return Api().get(`songs/${songId}`);
   },
   put(song) {
-    return Api().put(`songs/${song.id}`, song)
+    return Api().put(`songs/${song.id}`, song);
   }
-}
-
+};

@@ -5,16 +5,16 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-import VueYoutubeEmbed from 'vue-youtube-embed'
+import Panel from "@/components/Panel";
+import VueYoutubeEmbed from "vue-youtube-embed";
 
 export default {
   components: {
     Panel,
     VueYoutubeEmbed
   },
-  props: ['youtubeId']
-}
+  props: ["youtubeId"]
+};
 </script>
 
 <style>

@@ -14,21 +14,16 @@
 
 <script>
 export default {
-  props: [
-    'title',
-    'classList'
-  ],
+  props: ["title", "classList"],
   data() {
-    return {
-
-    }
+    return {};
   },
   computed: {
     fullClassList() {
-      return 'white elevation-2 ' + this.classList
+      return "white elevation-2 " + this.classList;
     }
   }
-}
+};
 </script>
 
 <style scoped>

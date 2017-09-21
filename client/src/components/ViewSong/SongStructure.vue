@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
+import Panel from "@/components/Panel";
 
 export default {
   components: {
     Panel
   },
-  props: ['song']
-}
+  props: ["song"]
+};
 </script>
 
 <style>

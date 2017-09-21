@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-import SongsService from '@/services/SongsService'
+import Panel from "@/components/Panel";
+import SongsService from "@/services/SongsService";
 
 export default {
   components: {
@@ -35,8 +35,8 @@ export default {
   },
   data() {
     return {
-      titleLeft: 'Song metadata',
-      titleRight: 'Song structure',
+      titleLeft: "Song metadata",
+      titleRight: "Song structure",
       song: {
         id: null,
         title: null,
@@ -49,38 +49,39 @@ export default {
         tab: null
       },
       error: null,
-      required: (value) => !!value || 'Required'
-    }
+      required: value => !!value || "Required"
+    };
   },
   async mounted() {
-    const songId = this.$store.state.route.params.songId
-    this.song = (await SongsService.show(songId)).data
+    const songId = this.$store.state.route.params.songId;
+    this.song = (await SongsService.show(songId)).data;
   },
   methods: {
     async save() {
-      this.error = null
-      const allFieldsFilled = Object.keys(this.song)
-        .every(key => !!this.song[key])
-      console.log('hi', allFieldsFilled)
+      this.error = null;
+      const allFieldsFilled = Object.keys(this.song).every(
+        key => !!this.song[key]
+      );
+      console.log("hi", allFieldsFilled);
       if (!allFieldsFilled) {
-        this.error = 'Please fill all the fields'
-        return
+        this.error = "Please fill all the fields";
+        return;
       }
 
       try {
-        await SongsService.put(this.song)
+        await SongsService.put(this.song);
         this.$router.push({
-          name: 'View Song',
+          name: "View Song",
           params: {
             songId: this.song.id
           }
-        })
+        });
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
     }
   }
-}
+};
 </script>
 
 <style>

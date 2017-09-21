@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   strict: true,
@@ -12,20 +12,20 @@ export default new Vuex.Store({
   },
   mutations: {
     setToken(state, token) {
-      state.token = token
+      state.token = token;
 
-      state.isUserLoggedIn = token !== null
+      state.isUserLoggedIn = token !== null;
     },
     setUser(state, user) {
-      state.user = user
+      state.user = user;
     }
   },
   actions: {
     setToken({ commit }, token) {
-      commit('setToken', token)
+      commit("setToken", token);
     },
     setUser({ commit }, user) {
-      commit('setUser', user)
+      commit("setUser", user);
     }
   }
-})
+});

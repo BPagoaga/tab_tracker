@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
-import SongsService from '@/services/SongsService'
+import Panel from "@/components/Panel";
+import SongsService from "@/services/SongsService";
 
 export default {
   components: {
@@ -40,15 +40,15 @@ export default {
   },
   data() {
     return {
-      title: 'Songs',
+      title: "Songs",
       songs: null
-    }
+    };
   },
   async mounted() {
     // request to the backend to get all songs
-    this.songs = (await SongsService.index()).data
+    this.songs = (await SongsService.index()).data;
   }
-}
+};
 </script>
 
 <style scoped>
