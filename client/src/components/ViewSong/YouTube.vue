@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import Panel from "@/components/Panel";
 import VueYoutubeEmbed from "vue-youtube-embed";
 
 export default {
   components: {
-    Panel,
     VueYoutubeEmbed
   },
   props: ["youtubeId"]
@@ -18,7 +16,7 @@ export default {
 </script>
 
 <style>
-.youtube-wrapper > iframe {
+.youtube-wrapper>iframe {
   max-width: 100%;
 }
 </style>

@@ -8,6 +8,7 @@ import { sync } from "vuex-router-sync";
 import "vuetify/dist/vuetify.min.css";
 import store from "@/store/store";
 import VueYouTubeEmbed from "vue-youtube-embed";
+import Panel from "@/components/globals/Panel";
 
 Vue.config.productionTip = false;
 
@@ -15,6 +16,9 @@ Vue.use(Vuetify);
 Vue.use(VueYouTubeEmbed);
 
 sync(store, router);
+
+// Global component, used nearly everywhere in our app
+Vue.component("panel", Panel);
 
 /* eslint-disable no-new */
 new Vue({

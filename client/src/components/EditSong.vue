@@ -20,19 +20,17 @@
       <v-alert class="ml-4" :value="error" transition="scale-transition" error>
         {{error}}
       </v-alert>
-      <v-btn class="cyan" @click="save" dark><v-icon>save</v-icon></v-btn>
+      <v-btn class="cyan" @click="save" dark>
+        <v-icon>save</v-icon>
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Panel from "@/components/Panel";
 import SongsService from "@/services/SongsService";
 
 export default {
-  components: {
-    Panel
-  },
   data() {
     return {
       titleLeft: "Song metadata",

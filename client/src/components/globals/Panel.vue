@@ -7,7 +7,7 @@
     </v-toolbar>
 
     <div class="pl-4 pr-4 pb-2 pl-2">
-      <slot></slot>
+      <slot>No slot defined</slot>
     </div>
   </div>
 </template>

@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import Panel from "@/components/Panel";
 import SongsService from "@/services/SongsService";
 import SongMetadata from "@/components/ViewSong/SongMetadata";
 import SongStructure from "@/components/ViewSong/SongStructure";
@@ -29,7 +28,6 @@ import Lyrics from "@/components/ViewSong/Lyrics";
 
 export default {
   components: {
-    Panel,
     SongMetadata,
     SongStructure,
     YouTube,

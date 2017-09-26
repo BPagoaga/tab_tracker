@@ -3,7 +3,7 @@
     <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
       <panel :title="title">
         <div class="pl-4 pr-4 pb-2 pl-2">
-          <v-text-field label="Email" v-model="email"></v-text-field>
+          <v-text-field label="Email" type="email" v-model="email"></v-text-field>
           <v-text-field label="Password" type="password" v-model="password"></v-text-field>
           <div v-html="error" class="error"></div>
 
@@ -16,12 +16,8 @@
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService";
-import Panel from "@/components/Panel";
 
 export default {
-  components: {
-    Panel
-  },
   data() {
     return {
       title: "Login",
