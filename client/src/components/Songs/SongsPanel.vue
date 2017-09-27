@@ -22,6 +22,7 @@
           <v-btn class="cyan accent-2" light medium right :to="{ name: 'View Song', params: { songId: song.id }}" router>View</v-btn>
         </v-list-tile>
       </template>
+      <section v-if="songs.length === 0">No song matched</section>
     </v-list>
   </panel>
 </template>

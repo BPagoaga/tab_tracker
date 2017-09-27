@@ -9,7 +9,7 @@ module.exports = {
       if (search) {
         songs = await Song.findAll({
           where: {
-            $or: ["title", "artiste", "album", "genre"].map(key => {
+            $or: ["title", "artist", "album", "genre"].map(key => {
               return {
                 [key]: {
                   $like: `%${search}%`
@@ -27,7 +27,7 @@ module.exports = {
       res.send(songs);
     } catch (err) {
       res.status(500).send({
-        error: `An error has occured while trying to fetch the song`
+        error: `An error has occured while trying to fetch the song : ${err}`
       });
     }
   },

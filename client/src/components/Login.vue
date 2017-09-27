@@ -1,15 +1,19 @@
 <template>
   <v-layout column>
     <v-flex xs12 sm8 offset-sm2 md6 offset-md3>
-      <panel :title="title">
-        <div class="pl-4 pr-4 pb-2 pl-2">
-          <v-text-field label="Email" type="email" v-model="email"></v-text-field>
-          <v-text-field label="Password" type="password" v-model="password"></v-text-field>
-          <div v-html="error" class="error"></div>
+      <v-form>
+        <panel :title="title">
+          <div class="pl-4 pr-4 pb-2 pl-2">
+            <v-text-field label="Email" type="email" v-model="email"></v-text-field>
+            <v-text-field label="Password" type="password" v-model="password"></v-text-field>
+            <v-alert class="ml-4" :value="error" transition="scale-transition" error>
+              {{error}}
+            </v-alert>
 
-          <v-btn class="cyan" @click="login" dark>Login</v-btn>
-        </div>
-      </panel>
+            <v-btn class="cyan" @click="submit" dark>Login</v-btn>
+          </div>
+        </panel>
+      </v-form>
     </v-flex>
   </v-layout>
 </template>
@@ -27,7 +31,7 @@ export default {
     };
   },
   methods: {
-    async login() {
+    async submit() {
       try {
         const response = await AuthenticationService.login({
           email: this.email,
@@ -36,6 +40,10 @@ export default {
 
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
+        // redirect the user to the songs page after logging
+        this.$router.push({
+          name: "Songs"
+        });
       } catch (err) {
         this.error = err.response.data.error;
       }
@@ -46,7 +54,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.error {
-  color: red;
-}
+
 </style>

@@ -7,7 +7,9 @@
             <v-text-field label="Email" v-model="email">
             </v-text-field>
             <v-text-field label="Password" type="password" autocomplete="new-password" v-model="password"></v-text-field>
-            <div v-html="error" class="error"></div>
+            <v-alert class="ml-4" :value="error" transition="scale-transition" error>
+              {{error}}
+            </v-alert>
           </form>
 
           <v-btn class="cyan" @click="register" dark>Register</v-btn>
@@ -39,6 +41,10 @@ export default {
 
         this.$store.dispatch("setToken", response.data.token);
         this.$store.dispatch("setUser", response.data.user);
+        // redirect the user to the songs page after registering
+        this.$router.push({
+          name: "Songs"
+        });
       } catch (err) {
         this.error = err.response.data.error;
       }
@@ -49,7 +55,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.error {
-  color: red;
-}
+
 </style>

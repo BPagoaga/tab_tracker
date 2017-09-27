@@ -35,7 +35,7 @@ export default {
       this.$store.dispatch("setUser", null);
       // redirect to homepage
       this.$router.push({
-        name: "root"
+        name: "songs"
       });
     }
   }

@@ -13,20 +13,21 @@ export default {
     };
   },
   watch: {
-    search(value) {
-      console.log(value);
+    search: function(value) {
       const route = {
         name: "Songs"
       };
+      setTimeout(() => {
+        if (this.search !== "") {
+          route.query = {
+            search: this.search
+          };
+        }
 
-      if (this.search !== "") {
-        route.query = {
-          search: this.search
-        };
-      }
-
-      this.$router.push(route);
+        this.$router.push(route);
+      }, 400);
     },
+
     "$route.query.search": {
       immediate: true,
       handler(value) {
