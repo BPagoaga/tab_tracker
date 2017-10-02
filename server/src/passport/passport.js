@@ -3,3 +3,33 @@ const { User } = require("../models");
 
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").Extract;
+
+const config = require("../config/config");
+
+passport.use(
+  new Strategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: config.authentication.jwtSecret
+    },
+    async function(jwtPayLoad, done) {
+      try {
+        const user = await User.findOne({
+          where: {
+            id: jwtPayLoad.id
+          }
+        });
+
+        if (!user) {
+          return done(new Error(), false);
+        }
+
+        return done(null, user);
+      } catch (e) {
+        return done(new Error(), false);
+      }
+    }
+  )
+);
+
+module.exports = null;
