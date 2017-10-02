@@ -4,6 +4,7 @@
       <v-toolbar-title>{{title}}</v-toolbar-title>
       <slot name="add-song"></slot>
       <slot name="edit-song"></slot>
+      <slot name="bookmark-song"></slot>
     </v-toolbar>
 
     <div class="pl-4 pr-4 pb-2 pl-2">
