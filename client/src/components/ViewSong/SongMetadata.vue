@@ -49,8 +49,7 @@ export default {
     async setBookmark() {
       try {
         this.bookmark = (await BookmarksService.post({
-          songId: this.song.id,
-          userId: this.user.id
+          songId: this.song.id
         })).data;
       } catch (err) {
         console.error(err);
@@ -70,8 +69,7 @@ export default {
 
     try {
       const bookmarks = (await BookmarksService.index({
-        songId: this.song.id,
-        userId: this.user.id
+        songId: this.song.id
       })).data;
 
       if (Array.isArray(bookmarks)) {
